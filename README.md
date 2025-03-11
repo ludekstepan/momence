@@ -2,6 +2,14 @@
 
 Description: TODO
 
+# TODO
+
+- [ ] Eslint + codeformatting
+- [ ] Strict mode
+- [ ] A11y
+- [ ] Error handling and boundaries
+- [ ] Deps lock versions
+
 ## How to run
 
 TODO
