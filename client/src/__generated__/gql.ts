@@ -14,12 +14,10 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Learn more about it here: https://the-guild.dev/graphql/codegen/plugins/presets/preset-client#reducing-bundle-size
  */
 type Documents = {
-    "\n  query Test {\n    allFilms {\n      totalCount\n    }\n  }\n": typeof types.TestDocument,
-    "\n  query allFilms($first: Int!) {\n    allFilms(first: $first) {\n      edges {\n        node {\n          id\n          title\n        }\n      }\n    }\n  }\n": typeof types.AllFilmsDocument,
+    "\n  query rates {\n    rates {\n      date\n      rates {\n        amount\n        code\n        country\n        currency\n        rate\n      }\n    }\n  }\n": typeof types.RatesDocument,
 };
 const documents: Documents = {
-    "\n  query Test {\n    allFilms {\n      totalCount\n    }\n  }\n": types.TestDocument,
-    "\n  query allFilms($first: Int!) {\n    allFilms(first: $first) {\n      edges {\n        node {\n          id\n          title\n        }\n      }\n    }\n  }\n": types.AllFilmsDocument,
+    "\n  query rates {\n    rates {\n      date\n      rates {\n        amount\n        code\n        country\n        currency\n        rate\n      }\n    }\n  }\n": types.RatesDocument,
 };
 
 /**
@@ -39,11 +37,7 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query Test {\n    allFilms {\n      totalCount\n    }\n  }\n"): (typeof documents)["\n  query Test {\n    allFilms {\n      totalCount\n    }\n  }\n"];
-/**
- * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function graphql(source: "\n  query allFilms($first: Int!) {\n    allFilms(first: $first) {\n      edges {\n        node {\n          id\n          title\n        }\n      }\n    }\n  }\n"): (typeof documents)["\n  query allFilms($first: Int!) {\n    allFilms(first: $first) {\n      edges {\n        node {\n          id\n          title\n        }\n      }\n    }\n  }\n"];
+export function graphql(source: "\n  query rates {\n    rates {\n      date\n      rates {\n        amount\n        code\n        country\n        currency\n        rate\n      }\n    }\n  }\n"): (typeof documents)["\n  query rates {\n    rates {\n      date\n      rates {\n        amount\n        code\n        country\n        currency\n        rate\n      }\n    }\n  }\n"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};

@@ -1,14 +1,26 @@
-import { useFilmsQuery } from './graphql/use-films-query.ts'
+import { useRatesQuery } from './graphql/use-rates-query.ts'
 
 export const CNB = () => {
-  const { data } = useFilmsQuery({ first: 10 })
+  const { data } = useRatesQuery()
 
   console.log({ data })
 
   return (
     <div>
       <h1>blah blah</h1>
-      {data?.allFilms?.edges?.map(({ node }) => <p>{node.title}</p>)}
+      <table>
+        {data?.rates?.rates?.map(
+          ({ amount, code, country, currency, rate }) => (
+            <tr>
+              <td>{amount}</td>
+              <td>{code}</td>
+              <td>{country}</td>
+              <td>{currency}</td>
+              <td>{rate}</td>
+            </tr>
+          ),
+        )}
+      </table>
     </div>
   )
 }
