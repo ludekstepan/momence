@@ -1,6 +1,8 @@
 import Papa from 'papaparse'
 import { CsvShape, DailyRates } from './types.ts'
 
+const CNB_URL = process.env.CNB_URL!
+
 /**
  * Parses CSV body and transforms the object shape
  */
@@ -27,9 +29,7 @@ export const parseRatesCSV = (body: string): DailyRates => {
  * Fetches and parses daily rates from CNB
  */
 export const fetchDailyRates = async () => {
-  const response = await fetch(
-    'https://www.cnb.cz/en/financial-markets/foreign-exchange-market/central-bank-exchange-rate-fixing/central-bank-exchange-rate-fixing/daily.txt',
-  )
+  const response = await fetch(CNB_URL)
   const body = await response.text()
   return parseRatesCSV(body)
 }
