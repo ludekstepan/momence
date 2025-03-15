@@ -1,9 +1,9 @@
 version: 1
-applications:
-  - frontend:
-    appRoot: client
-    #buildpath: client
+frontend:
     phases:
+      preBuild:
+        commands:
+          - cd client
       build:
         commands:
           - npm run build
