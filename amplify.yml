@@ -1,6 +1,7 @@
 version: 1
 frontend:
-  buildpath: client
+  appRoot: client
+  #buildpath: client
   phases:
     build:
       commands:
