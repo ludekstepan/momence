@@ -1,16 +1,17 @@
 version: 1
-frontend:
-  appRoot: client
-  #buildpath: client
-  phases:
-    build:
-      commands:
-        - npm run build
-  artifacts:
-    baseDirectory: dist
-    files:
-      - "**/*"
-  cache:
-    paths:
-      - '.npm/**/*'
-      - 'node_modules/**/*'
+applications:
+  - frontend:
+    appRoot: client
+    #buildpath: client
+    phases:
+      build:
+        commands:
+          - npm run build
+    artifacts:
+      baseDirectory: dist
+      files:
+        - "**/*"
+    cache:
+      paths:
+        - '.npm/**/*'
+        - 'node_modules/**/*'
