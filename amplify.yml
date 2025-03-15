@@ -16,3 +16,9 @@ frontend:
       paths:
         - '.npm/**/*'
         - 'node_modules/**/*'
+backend:
+  phases:
+    preBuild:
+      commands:
+        - cd server
+        - npm install
