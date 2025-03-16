@@ -20,7 +20,7 @@ backend:
   phases:
     preBuild:
       commands:
-        - cd server
+#        - cd server
         - npm ci
     build:
       commands:
